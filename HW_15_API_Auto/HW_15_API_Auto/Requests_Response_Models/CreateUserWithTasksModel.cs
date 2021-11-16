@@ -5,6 +5,15 @@ using Newtonsoft.Json;
 
 namespace Tests_API
 {
+    public class Task
+    {
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+    }
+
     public class CreateUserWithTasksModel
     {
         [JsonProperty("email")]
@@ -67,6 +76,8 @@ namespace Tests_API
 
         [JsonProperty("date_start")]
         public string DateStart { get; set; }
+
+
 
         public CreateUserWithTasksModel(string email, string name, List<string> tasks,
            List<int> companies, string hobby, string adres, string name1, string surname1,
