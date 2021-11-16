@@ -58,20 +58,37 @@ namespace Tests_API
         public void CreateCompanyTestValidData()
         {
             Helper helper = new Helper();
-            CreateCompanyModel body = new CreateCompanyModel("MarinerisCompany", "OOO", new List<string>() { "hrgegr@gmail.com", "fggdf@gmail.com" }, "marineris@gmail.com");
+            CreateCompanyModel body = new CreateCompanyModel()
+            {
+                CompanyName = "MarinerisLtd",
+                CompanyType = "ООО",
+                CompanyUsers = new List<string> { helper.GenerateEmail(), helper.GenerateEmail() },
+                EmailOwner = "marineris@gmail.com"
+            };
             RequestHelper requestHelper = new RequestHelper("/createcompany");
             IRestResponse response = requestHelper.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
 
-            Assert.AreEqual("OK", response.StatusCode.ToString());
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.AreEqual(body.CompanyName, json["company"]["name"]?.ToString());
+            Assert.AreEqual(body.CompanyType, json["company"]["type"]?.ToString());
         }
 
-        [Test]
-        public void CreateCompanyTestInvalidTypeOfCompany()
+        [TestCase ("MarinerisLtd", "LTD", "marineris@gmail.com")]
+        [TestCase("", "OOO", "marineris@gmail.com")]
+        [TestCase("", "OOO", "marineris@gmail.com")]
+        [TestCase("hjfdghdfn", "OOO", "marineris@gmail.com")]
+        [TestCase("", "", "")]
+        public void CreateCompanyTestInvalidData(string companyName, string companyType, string emailOwner)
         {
             Helper helper = new Helper();
-            CreateCompanyModel body = new CreateCompanyModel("MarinerisCompany", "ТОВ", new List<string>() { "hrgegr@gmail.com", "fggdf@gmail.com" }, "marineris@gmail.com");
+            CreateCompanyModel body = new CreateCompanyModel()
+            {
+                CompanyName = companyName,
+                CompanyType = companyType,
+                EmailOwner = emailOwner
+            };
+
             RequestHelper requestHelper = new RequestHelper("/createcompany");
             IRestResponse response = requestHelper.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);

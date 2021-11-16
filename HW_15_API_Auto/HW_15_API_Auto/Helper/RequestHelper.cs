@@ -1,7 +1,4 @@
-﻿using NUnit.Framework;
-using RestSharp;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using RestSharp;
 using Newtonsoft.Json.Linq;
 
 namespace Tests_API
