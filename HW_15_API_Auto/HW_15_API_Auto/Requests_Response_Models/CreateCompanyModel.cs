@@ -15,7 +15,7 @@ namespace Tests_API
         public string IdCompany { get; set; }
 
         [JsonProperty("company")]
-        public string CompanyData { get; set; }
+        public CreateCompanyModel CompanyData { get; set; }
 
     }
     public class CreateCompanyModel
@@ -32,12 +32,12 @@ namespace Tests_API
         [JsonProperty("email_owner")]
         public string EmailOwner { get; set; }
 
-        public CreateCompanyModel(string company_name, string company_type, List<string> company_users, string email_owner)
-        {
-            this.CompanyName = company_name;
-            this.CompanyType = company_type;
-            this.CompanyUsers = company_users;
-            this.EmailOwner = email_owner;
-        }
+        //public CreateCompanyModel(string company_name, string company_type, List<string> company_users, string email_owner)
+        //{
+        //    this.CompanyName = company_name;
+        //    this.CompanyType = company_type;
+        //    this.CompanyUsers = company_users;
+        //    this.EmailOwner = email_owner;
+        //}
     }
 }
