@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -16,7 +14,7 @@ namespace Tests_API
         public string Name { get; set; }
 
         [JsonProperty("tasks")]
-        public List<Task> Tasks { get; set; }
+        public List<string> Tasks { get; set; }
 
         [JsonProperty("companies")]
         public List<int> Companies { get; set; }
@@ -69,6 +67,34 @@ namespace Tests_API
 
         [JsonProperty("date_start")]
         public string Date_start { get; set; }
+
+        public CreateUserWithTasksModel(string email, string name, List<string> tasks,
+            List<int> companies, string hobby, string adres, string name1, string surname1,
+            string fathername1, string cat, string dog, string parrot, string cavy, string hamster, 
+            string squirrel, string phone, string inn, string gender, string birthday, string date_start)
+        {
+            this.Email = email;
+            this.Name = name;
+            this.Tasks = tasks;
+            this.Companies = companies;
+            this.Hobby = hobby;
+            this.Adres = adres;
+            this.Name1 = name1;
+            this.Surname1 = surname1;
+            this.Fathername1 = fathername1;
+            this.Cat = cat;
+            this.Dog = dog;
+            this.Parrot = parrot;
+            this.Cavy = cavy;
+            this.Hamster = hamster;
+            this.Squirrel = squirrel;
+            this.Phone = phone;
+            this.Inn = inn;
+            this.Gender = gender;
+            this.Birthday = birthday;
+            this.Date_start = date_start;
+
+        }
 
     }
 }
