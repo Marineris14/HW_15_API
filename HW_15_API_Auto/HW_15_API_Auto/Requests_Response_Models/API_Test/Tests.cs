@@ -76,8 +76,10 @@ namespace Tests_API
 
         [TestCase ("MarinerisLtd", "LTD", "marineris@gmail.com")]
         [TestCase("", "OOO", "marineris@gmail.com")]
+        [TestCase("", "OOO", "marineris@gmail.com")]
+        [TestCase("hjfdghdfn", "OOO", "marineris@gmail.com")]
         [TestCase("", "", "")]
-        public void CreateCompanyTestInvalidTypeOfCompany(string companyName, string companyType, string emailOwner)
+        public void CreateCompanyTestInvalidData(string companyName, string companyType, string emailOwner)
         {
             Helper helper = new Helper();
             CreateCompanyModel body = new CreateCompanyModel()
