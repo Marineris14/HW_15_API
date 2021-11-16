@@ -3,6 +3,21 @@ using Newtonsoft.Json;
 
 namespace Tests_API
 {
+    public class CreateCompanyData
+    {
+        [JsonProperty("type")]
+        public string StatusType { get; set; }
+
+        [JsonProperty("messaga")]
+        public string Message { get; set; }
+
+        [JsonProperty("id_company")]
+        public string IdCompany { get; set; }
+
+        [JsonProperty("company")]
+        public string CompanyData { get; set; }
+
+    }
     public class CreateCompanyModel
     {
         [JsonProperty("company_name")]
