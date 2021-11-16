@@ -22,7 +22,7 @@ namespace Tests_API
             RequestHelper requestHelper = new RequestHelper("/doregister");
             IRestResponse response = requestHelper.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
-           
+
             Assert.AreEqual("OK", response.StatusCode.ToString());
         }
 
@@ -58,7 +58,7 @@ namespace Tests_API
         public void CreateCompanyTestValidData()
         {
             Helper helper = new Helper();
-            CreateCompanyModel body = new CreateCompanyModel("MarinerisCompany","OOO", new List<string> (){ "hrgegr@gmail.com", "fggdf@gmail.com" }, "marineris@gmail.com" );
+            CreateCompanyModel body = new CreateCompanyModel("MarinerisCompany", "OOO", new List<string>() { "hrgegr@gmail.com", "fggdf@gmail.com" }, "marineris@gmail.com");
             RequestHelper requestHelper = new RequestHelper("/createcompany");
             IRestResponse response = requestHelper.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
@@ -100,13 +100,14 @@ namespace Tests_API
         public void CreateUserWithTasksTestValidData()
         {
             Helper helper = new Helper();
-            CreateUserWithTasksModel body = new CreateUserWithTasksModel(helper.GenerateEmail(), helper.GenerateName(), new List<string>() { "first task", "second task" }, new List<int>() { 19, 20 }, "Kendo",
+            CreateUserWithTasksModel body = new CreateUserWithTasksModel(helper.GenerateEmail(), helper.GenerateName(), new List<string> () { "first task", "second task" }, new List<int>() { 19, 20 }, "Kendo",
                 "Lviv", "Parker", "Petrow", "Cat", "Dog", "Parrot", "Cavy", "Hamster", "Squirrel", "343 33 33", "143456789012", "m", "01.01.1900", "16,11.2021");
             RequestHelper requestHelper = new RequestHelper("/createuser");
             IRestResponse response = requestHelper.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
-            
+
             Assert.AreEqual("OK", response.StatusCode.ToString());
 
         }
+    }
 }

@@ -66,10 +66,10 @@ namespace Tests_API
 
 
         [JsonProperty("date_start")]
-        public string Date_start { get; set; }
+        public string DateStart { get; set; }
 
         public CreateUserWithTasksModel(string email, string name, List<string> tasks,
-            List<int> companies, string hobby, string adres, string name1, string surname1,
+           List<int> companies, string hobby, string adres, string name1, string surname1,
             string fathername1, string cat, string dog, string parrot, string cavy, string hamster, 
             string squirrel, string phone, string inn, string gender, string birthday, string date_start)
         {
@@ -92,7 +92,7 @@ namespace Tests_API
             this.Inn = inn;
             this.Gender = gender;
             this.Birthday = birthday;
-            this.Date_start = date_start;
+            this.DateStart = date_start;
 
         }
 
